@@ -1,22 +1,13 @@
-let s = "[{([])}]"
-var letters:[Character] = Array(s)
-var badBracket: Set = [")", "]", "}"]
-if badBracket.contains(String(letters[0])) {
-    //return false
-    print(false)
-}
+let s = "({}{{}[]})"
 var copyOfS = s
-var correctBracket = ["{}", "[]", "()"]
-var checking: Bool = false
+var checkLength = s.count
 repeat {
-    checking = false
-    for substring in correctBracket{
-        if copyOfS.contains(substring){
-            copyOfS.replacingOccurrences(of: substring, with: "")
-            checking = true
-        }
-    }
-} while checking
+    checkLength = copyOfS.count
+    copyOfS.replace("()", with: "")
+    copyOfS.replace("[]", with: "")
+    copyOfS.replace("{}", with: "")
+    print(copyOfS)
+} while copyOfS.count != checkLength
 if copyOfS.count == 0 {
     print(true)
 } else {
