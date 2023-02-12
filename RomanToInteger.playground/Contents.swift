@@ -15,23 +15,23 @@ var romanDict: [Character: Int] = [
 ]
 repeat {
     firstNum = romanDict[ar[j]]!
-    if(i == 1){
+    if i == 1 {
         print(firstNum)  //return firstNum
     }
     secondNum = romanDict[ar[j + 1]]!
-    if(firstNum >= secondNum) {
+    if firstNum >= secondNum {
         result += firstNum
         j += 1
-        if(j == i - 1){
+        if j == i - 1 {
             result += secondNum
         }
-    }else{
+    } else {
         result += secondNum - firstNum
         j += 2
-        if(j == i - 1){
+        if j == i - 1 {
             secondNum = romanDict[ar[j]]!
             result += secondNum
         }
     }
-} while(j < i - 1)
+} while j < i - 1
 print(result) //return result
